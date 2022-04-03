@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/formValidator.css" />
+    <title>Home</title>
+  </head>
+  <body class="h1">
+    <header class="header">
+        <div class="container-main flex flex-between">
+          <div class="logo">
+            <img
+              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png"
+              alt=""
+            />
+          </div>
+          <div class="navbar">
+            <ul class="flex">
+              <li><a href="./timeline.html">Timeline</a></li>
+              <li><a href="./profile.html">Profile</a></li>
+              <li id="home"><a href="./formValidator.html">Sign up</a></li>
+              <li id="home"><a href="./login.html">Login</a></li>
+              <li><a onclick="logout()" href="./formValidator.html">Logout</a></li>
+            </ul>
+          </div>
+          <div class="burger">
+            <i onclick="openMenu()" class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </header>
+  
+      <div id="menu" class="menu">
+        <div class="close-icon flex">
+          <i onclick="closeMenu()" class="fa-solid fa-xmark"></i>
+        </div>
+        <ul class="flex">
+          <li><a href="./timeline.html">Timeline</a></li>
+          <li><a href="./profile.html">Profile</a></li>
+          <li id="home"><a href="./formValidator.html">Sign up</a></li>
+          <li id="home"><a href="./login.html">Login</a></li>
+          <li><a onclick="logout()" href="./formValidator.html">Logout</a></li>
+        </ul>
+      </div>
+      
+      <div>
+      <div class="pt-14">
+        <div id="other-user-title" class="w-full bg-red-200 py-8 text-center">
+          <!-- <h1 class="text-3xl text-[#333] font-[500]">Your article's Temuujin</h1> -->
+        </div>
+        <div id="other-user-articles" class="w-full">
+          <!-- <div class="w-11/12 mx-auto py-4 my-2 cursor-pointer">
+            <div class="w-full pb-2">
+              <h1 class="text-2xl text-[#333]">This is artticle title.</h1>
+            </div>
+            <div class="w-full pb-2">
+              <p class="text-md text-[#333] font-[500]">This is article description.</p>
+            </div>
+            <div class="w-full">
+              <h3 class="text-md text-red-700 font-[500]">user username</h3>
+            </div>
+          </div> -->
+        </div>
+      </div>
+  </body>
+
+  <script src="./js/formValidator.js"></script>
+
+  <script>
+    // const article = document.querySelector("#articles")
+    // const profilteTitle = document.querySelector("#title")
+
+    // if(!localStorage.loggedUser){
+    //   location.pathname = "/1.22/login.html"
+    // }
+
+    // profilteTitle.insertAdjacentHTML(
+    //   "afterbegin",
+    //   `
+    //   <h1 class="text-3xl text-[#333] font-[500]">Your article's ${JSON.parse(localStorage.getItem("loggedUser")).firstname}</h1>
+    //   `
+    //   // <img href="" src=${JSON.parse(localStorage.getItem("loggedUser")).profileImg} />
+    // )
+
+    // if(localStorage.Articles){
+    //   const articles1 = JSON.parse(localStorage.Articles)
+    //   const loggedUserId = JSON.parse(localStorage.loggedUser).id
+    //   console.log(loggedUserId)
+    //   console.log(articles1)
+    //   const k = articles1.filter((el) => el.createrId === loggedUserId)
+    //   console.log(k)
+    //   k.forEach(el => {
+    //     articles.insertAdjacentHTML(
+    //     "afterbegin",
+    //     `
+    //     <div class="px-16 py-4 my-2 bg-blue-200">
+    //       <div class="w-full pb-2">
+    //         <h1 class="text-2xl text-[#333]">Title: ${el.title}</h1>
+    //       </div>
+    //       <div class="w-full pb-2">
+    //         <p class="text-md text-[#333] font-[500]">Content: ${
+    //           el.content
+    //         }</p>
+    //       </div>
+    //       <div class="w-full">
+    //         <h3 class="text-md text-red-700 font-[500]">Creater user name: ${
+    //           el.createrName
+    //         }
+    //         </h3>
+    //         <h3 class="text-md text-red-700 font-[500]">Creater id: ${
+    //           el.createrId
+    //         }
+    //         </h3>
+    //       </div>
+    //     </div>
+    //     `
+    //   );
+    //   });
+    // }
+    
+
+    const otherUserTitle = document.querySelector("#other-user-title");
+    const otherUserArticle = document.querySelector("#other-user-articles");
+
+    const otherUser = JSON.parse(localStorage.getItem("otherUser"))
+    otherUserTitle.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <h1 class="text-3xl text-[#333] font-[500]">Hi i'm ${otherUser.firstname}</h1>
+        <h1 class="text-3xl text-[#333] font-[500]">My user id is ${otherUser.id}</h1>
+        `
+    );
+
+    const articles1 = JSON.parse(localStorage.Articles);
+    const k = articles1.filter((el) => el.createrId === otherUser.id);
+    console.log(k);
+    k.forEach((el) => {
+        otherUserArticle.insertAdjacentHTML(
+        "afterbegin",
+        `
+            <div class="px-16 py-4 my-2 bg-blue-200">
+            <div class="w-full pb-2">
+                <h1 class="text-2xl text-[#333]">Title: ${el.title}</h1>
+            </div>
+            <div class="w-full pb-2">
+                <p class="text-md text-[#333] font-[500]">Content: ${el.content}</p>
+            </div>
+            <div class="w-full">
+                <h3 class="text-md text-red-700 font-[500]">Creater user name: ${el.createrName}
+                </h3>
+                <h3 class="text-md text-red-700 font-[500]">Creater id: ${el.createrId}
+                </h3>
+            </div>
+            </div>
+            `
+        );
+    });
+  </script>
+</html>

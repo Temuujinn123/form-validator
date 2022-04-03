@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/formValidator.css" />
+    <title>Login</title>
+  </head>
+  <body class="h1">
+    <header class="header">
+      <div class="container-main flex flex-between">
+        <div class="logo">
+          <img
+            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png"
+            alt=""
+          />
+        </div>
+        <div class="navbar">
+          <ul class="flex">
+            <li id="home"><a href="./timeline.html">Timeline</a></li>
+            <li id="home"><a href="./profile.html">Profile</a></li>
+            <li><a href="./formValidator.html">Sign up</a></li>
+            <li><a href="">Login</a></li>
+            <li id="home"><a href="#">Logout</a></li>
+          </ul>
+        </div>
+        <div class="burger">
+          <i onclick="openMenu()" class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <div id="menu" class="menu">
+      <div class="close-icon flex">
+        <i onclick="closeMenu()" class="fa-solid fa-xmark"></i>
+      </div>
+      <ul class="flex">
+        <li id="home"><a href="./timeline.html">Timeline</a></li>
+        <li id="home"><a href="./profile.html">Profile</a></li>
+        <li><a href="./formValidator.html">Sign up</a></li>
+        <li><a href="">Login</a></li>
+        <li id="home"><a href="#">Logout</a></li>
+      </ul>
+    </div>
+    <div>
+      <main class="main">
+        <div class="container-main">
+          <div class="form flex">
+            <div class="main-title flex flex-center">
+              <h1 class="h1">Login</h1>
+            </div>
+            <div class="first">
+              <h1 class="h1">Email:</h1>
+              <input
+                id="loginEmail"
+                class="h1"
+                type="text"
+                placeholder="Email"
+              />
+            </div>
+            <div class="first">
+              <h1 class="h1">Password:</h1>
+              <input
+                id="loginPassword"
+                class="h1"
+                type="text"
+                placeholder="Password"
+              />
+            </div>
+            <div class="button">
+              <button id="loginBtn" onclick="loginHandler()" class="h1">
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <script src="./js/form-validator/formValidator.js"></script>
+
+  <script>
+    if (localStorage.loggedUser) {
+      location.pathname = "/1.22/profile.html";
+    }
+  </script>
+</html>
