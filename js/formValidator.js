@@ -35,7 +35,7 @@ function loginHandler() {
       "loggedUser",
       JSON.stringify(users.find((el) => el.email === loginEmail.value))
     );
-    location.pathname = "/1.22/profile.html";
+    location.pathname = "/profile.html";
   } else {
     alert("Please check your email or password...");
   }
@@ -169,7 +169,7 @@ function goOtherUserProfile(createrId) {
   const p = users.find((el) => +el.id === createrId);
   console.log(p);
   localStorage.setItem("otherUser", JSON.stringify(p));
-  location.pathname = "/1.22/form-validator/ohterusersprofile.html";
+  location.pathname = "/form-validator/ohterusersprofile.html";
   // prepareOtherPoeplePage(p);
 }
 
